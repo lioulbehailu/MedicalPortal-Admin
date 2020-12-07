@@ -18,10 +18,11 @@ const Doctor = mongoose.model("Doctor");
 const Hospital = mongoose.model("Hospital");
 
 // setup database connection
-// mongoose.connect(config.database, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
+mongoose.connect(config.database, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+});
 
 connect.connect();
 let db = mongoose.connection;

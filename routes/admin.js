@@ -10,6 +10,7 @@ const applicationSettings = require("../models/ApplicationSettings");
 const Admin = require("../models/admin");
 const Hospital = require("../models/hospital");
 const Doctors = require("../models/doctor");
+const Patients = require("../models/patients");
 
 const APISetting = require("./pages/applicationSettings/index");
 const Report = require("./pages/report/index");
@@ -26,6 +27,36 @@ const RegisterParent = {
 
 const adminBroOption = new AdminBro({
   resources: [
+    {
+      apiFetch: null,
+      resource: Patients,
+      options: {
+        apiFetch: false,
+        properties: {
+          _id: {
+            isVisible: { list: false, filter: false, show: false, edit: false },
+          },
+        },
+        actions: {
+          list: { isVisible: false },
+          delete: {
+            isVisible: false,
+          },
+          new: {
+            isVisible: false,
+          },
+          edit: {
+            isVisible: false,
+          },
+          filter: {
+            isVisible: false,
+          },
+          bulkDelete: {
+            isVisible: false,
+          },
+        },
+      },
+    },
     {
       apiFetch: null,
       resource: applicationSettings,
